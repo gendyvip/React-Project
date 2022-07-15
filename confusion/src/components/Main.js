@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import Home from './Home';
-import Header from './Header'
 import Menu from './Menu';
+import Contact from './Contact';
 import DishDetail from './DishDetail';
 import Footer from './Footer'
 import { DISHES } from '../Shared/dishes';
+import { COMMENTS } from '../Shared/comments';
+import { LEADERS } from '../Shared/leaders';
+import { PROMOTIONS } from '../Shared/promotions';
 import {Switch, Route, Redirect} from 'react-router-dom';
 
 class Main extends Component {
@@ -12,7 +16,9 @@ class Main extends Component {
     super(props)
     this.state = {
       dishes: DISHES,
-      selectedDish: null
+      comments:COMMENTS,
+      leaders:LEADERS,
+      promotions:PROMOTIONS
     }
   }
   render() {
@@ -21,8 +27,12 @@ class Main extends Component {
       <Header />
     <Switch>
     <div className="container row-content">
-      <Route path="/home" component={() => <Home />} />
+      <Route path="/home" component={() => <Home dishes={this.state.dishes.filter((dish) => dish.featured)[0]}
+      promotions={this.state.promotions.filter((promotion) => promotion.featured)[0]}
+      leaders={this.state.leaders.filter((leader) => leader.featured)[0]} />}
+      />
       <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} />} />
+      <Route exact path="/contact" component={() => <Contact />} />
       <Redirect to="/home" />
       </div>
     </Switch>
@@ -32,14 +42,3 @@ class Main extends Component {
   }
 }
 export default Main;
-
-
-/*   
- onDishSelect(dishID) {
-    this.setState({ selectedDish: dishID })
-  }
-
-          <Menu dishes={this.state.dishes} onClick={(dishID) => this.onDishSelect(dishID)} />
-          <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
-      
-        */
