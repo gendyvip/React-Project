@@ -18,6 +18,12 @@ body{
     border-bottom: 1px ridge;
     min-height:400px;
 }
+.text-bold{
+    font-weight: 600;
+}
+.bg-yellow{
+    background-color: #ffc107;
+}
 .footer{
     background-color: #29253b;
     color: aliceblue;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Home from './Home';
+import About from './About';
 import Menu from './Menu';
 import Contact from './Contact';
 import DishDetail from './DishDetail';
@@ -38,8 +39,9 @@ class Main extends Component {
       leaders={this.state.leaders.filter((leader) => leader.featured)[0]} />}
       />
       <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} />} />
-      <Route path='/menu/:id' component={DishWithId} />
+      <Route path='/menu/:dishId' component={DishWithId} />
       <Route exact path="/contact" component={() => <Contact />} />
+      <Route exact path="/about" component={() => <About leaders={this.state.leaders} />} />
       <Redirect to="/home" />
       </div>
     </Switch>

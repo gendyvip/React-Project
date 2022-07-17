@@ -24,14 +24,19 @@ const Menu = (props) => {
         );
     });
     return (
-        <><div className="row">
-            <Breadcrumb>
+    <div className="row justify-content-center">
+                <div className="col-12">
+                <Breadcrumb>
                 <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                 <BreadcrumbItem active>Menu</BreadcrumbItem>
             </Breadcrumb>
-        </div><div className="row">
+            </div>
+            <div className="col-12">
+                    <h3>Menu</h3>
+                    <hr />
+                </div>
                 {menu}
-            </div></>
+            </div>
     );
 }
 
