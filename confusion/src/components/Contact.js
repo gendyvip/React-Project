@@ -18,7 +18,7 @@ class Contact extends Component {
         this.ChangeCountryCode = this.ChangeCountryCode.bind(this);
     }
     ChangeCountryCode() {
-        this.setState({
+        this.setState({ 
             countrycode:this.state.countrycode
         });
     }
@@ -97,8 +97,7 @@ class Contact extends Component {
                                         />
                                         <Errors className="text-danger" model=".lastname" show="touched"
                                         messages={{
-                                            Required:"* Last Name Field Should Not be Empty",
-                                            validName:'Last Name Field Should Not Contain Numbers or Chars'
+                                            Required:"* Last Name Field Should Not be Empty"
                                         }}
                                         />
                                     </Col>
